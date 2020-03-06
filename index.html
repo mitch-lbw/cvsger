@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Confirmed COVID-19 cases in germany</title>
-    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <title>COVID-19 cases in germany</title>
     <script
         src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
@@ -20,12 +19,49 @@
         }
 
         td {
-            padding: 0 0.5em;
+            padding: 0 5px;
             text-align: left;
         }
 
         h3 {
             font-weight: bold;
+        }
+
+        .ol-popup {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #cccccc;
+            bottom: 12px;
+            left: -50px;
+            min-width: 280px;
+        }
+
+        .ol-popup:after,
+        .ol-popup:before {
+            top: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .ol-popup:after {
+            border-top-color: white;
+            border-width: 10px;
+            left: 48px;
+            margin-left: -10px;
+        }
+
+        .ol-popup:before {
+            border-top-color: #cccccc;
+            border-width: 11px;
+            left: 48px;
+            margin-left: -11px;
         }
     </style>
 </head>
@@ -37,7 +73,7 @@
         </div>
 
         <div id="map" class="map">
-            <div id="popup"></div>
+            <div id="popup" class="ol-popup"></div>
         </div>
 
         <div>

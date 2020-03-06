@@ -94,18 +94,13 @@ const userAction = async () => {
     }
 
     map.on('click', function (event) {
-        $(element).popover('destroy');
         var feature = map.getFeaturesAtPixel(event.pixel)[0];
         if (feature) {
             var coordinate = feature.getGeometry().getCoordinates();
             popup.setPosition(coordinate);
-            $(element).popover({
-                animation: false,
-                placement: 'top',
-                html: true,
-                content: formatCoordinate(feature)
-            });
-            $(element).popover('show');
+
+            document.getElementById('popup').innerHTML = formatCoordinate(feature);
+
         }
     });
 
