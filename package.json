@@ -1,14 +1,19 @@
 {
-    "name": "geographic",
-    "dependencies": {
-        "babel-polyfill": "^6.26.0",
-        "ol": "6.2.1"
-    },
-    "devDependencies": {
-        "parcel": "1.11.0"
-    },
-    "scripts": {
-        "start": "parcel index.html",
-        "build": "parcel build --experimental-scope-hoisting --public-url . index.html"
-    }
+  "name": "cvsger",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Corona mapping in Germany",
+  "author": "Michel Meier <dna.fan@gmx.de>",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build --experimental-scope-hoisting --public-url . index.html"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "ol": "6.2.1"
+  },
+  "devDependencies": {
+    "parcel": "1.11.0"
+  }
 }
