@@ -98,9 +98,10 @@ const userAction = async () => {
         if (feature) {
             var coordinate = feature.getGeometry().getCoordinates();
             popup.setPosition(coordinate);
-
             document.getElementById('popup').innerHTML = formatCoordinate(feature);
-
+        }
+        else {
+            popup.setPosition(undefined);
         }
     });
 
