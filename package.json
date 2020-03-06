@@ -3,7 +3,18 @@
   "private": true,
   "version": "0.0.1",
   "description": "Corona mapping in Germany",
-  "author": "Michel Meier <dna.fan@gmx.de>",
+  "author": {
+    "name": "Michel Meier",
+    "email": "dna.fan@gmx.de",
+    "url": "https://covid-map-de.now.sh/"
+  },
+  "contributors": [
+    {
+      "name": "Vytautas Macionis",
+      "email": "vytautas.macionis@manomail.de",
+      "url": "https://covid-map-de.now.sh/"
+    }
+  ],
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
