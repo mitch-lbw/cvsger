@@ -1,0 +1,14 @@
+{
+    "name": "geographic",
+    "dependencies": {
+        "babel-polyfill": "^6.26.0",
+        "ol": "6.2.1"
+    },
+    "devDependencies": {
+        "parcel": "1.11.0"
+    },
+    "scripts": {
+        "start": "parcel index.html",
+        "build": "parcel build --experimental-scope-hoisting --public-url . index.html"
+    }
+}
