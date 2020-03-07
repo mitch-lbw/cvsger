@@ -93,23 +93,15 @@ const userAction = async () => {
         return ("\n    <table>\n      <tbody>\n        <tr><th>Confirmed</th><td>" + (feature.values_.confirmed) + "</td></tr>\n<tr><th>Recovered</th><td>" + (feature.values_.recovered) + "</td></tr>\n<tr><th>Deaths</th><td>" + (feature.values_.deaths) + "</td></tr>\n<tr><th>Federal state</th><td>" + (feature.values_.state) + "</td></tr>\n        <tr><th>District</th><td>" + (feature.values_.district) + "</td></tr>\n      </tbody>\n    </table>");
     }
 
-    map.on('click', function (event) {
-        var feature = map.getFeaturesAtPixel(event.pixel)[0];
-        if (feature) {
+    map.on('pointermove', function (event) {
+        if (map.hasFeatureAtPixel(event.pixel)) {
+            var feature = map.getFeaturesAtPixel(event.pixel)[0];
             var coordinate = feature.getGeometry().getCoordinates();
             popup.setPosition(coordinate);
             document.getElementById('popup').innerHTML = formatCoordinate(feature);
         }
         else {
             popup.setPosition(undefined);
-        }
-    });
-
-    map.on('pointermove', function (event) {
-        if (map.hasFeatureAtPixel(event.pixel)) {
-            map.getViewport().style.cursor = 'pointer';
-        } else {
-            map.getViewport().style.cursor = 'inherit';
         }
     });
 
