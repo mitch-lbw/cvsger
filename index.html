@@ -8,6 +8,14 @@
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
     <style>
         .content {
             padding: 25px
@@ -26,43 +34,6 @@
         h3 {
             font-weight: bold;
         }
-
-        .ol-popup {
-            position: absolute;
-            background-color: white;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #cccccc;
-            bottom: 12px;
-            left: -50px;
-            min-width: 280px;
-        }
-
-        .ol-popup:after,
-        .ol-popup:before {
-            top: 100%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .ol-popup:after {
-            border-top-color: white;
-            border-width: 10px;
-            left: 48px;
-            margin-left: -10px;
-        }
-
-        .ol-popup:before {
-            border-top-color: #cccccc;
-            border-width: 11px;
-            left: 48px;
-            margin-left: -11px;
-        }
     </style>
 </head>
 
@@ -71,17 +42,15 @@
         <div>
             <h3 id="info">Total confirmed / recovered / deaths: </h3>
         </div>
+        <div id="map" class="map"></div>
 
-        <div id="map" class="map">
-            <div id="popup" class="ol-popup"></div>
-        </div>
-
-        <div>
-            <br />
-            Data source <a
-                href="https://github.com/iceweasel1/COVID-19-Germany/blob/master/germany_with_source.csv">https://github.com/iceweasel1</a>
-        </div>
-        <script src="index.js"></script>
+    </div>
+    <div>
+        <br />
+        Data source <a
+            href="https://github.com/iceweasel1/COVID-19-Germany/blob/master/germany_with_source.csv">https://github.com/iceweasel1</a>
+    </div>
+    <script src="dist/main.js"></script>
 </body>
 </div>
 
