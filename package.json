@@ -28,7 +28,14 @@
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/plugin-transform-runtime": "^7.8.3",
+    "git-scripts": "0.2.1",
+    "surge": "latest",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "npm run prod && surge --project ./ --domain covid-map-de.surge.sh"
+    }
   }
 }
