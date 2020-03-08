@@ -36,6 +36,22 @@ function getRadiusByZoom(zoom, weight) {
     }
     return logWeight * (1500 * (Math.pow((7 / zoom), 5)));
 }
+
+/** 
+ * map mode switch
+ */
+const bright = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}";
+const dark = "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+var mode = bright;
+
+if ('dark' == getURLParam('mode')) {
+    mode = dark;
+    document.getElementById('mapstyle').value = "dark";
+}
+document.getElementById('mapstyle').onchange = function () {
+    window.location = setURLParam('mode', this.value);
+};
+
 var valuesMap = {};
 // start counting at -1 due to csv header
 var confirmedCount = -1;
@@ -82,8 +98,8 @@ const userAction = async () => {
         });
     });
 
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+    L.tileLayer(mode, {
+        attribution: 'Build with Leaflet'
     }).addTo(leafletMap);
 
     function formatCoordinate(confirmed, recovered, deaths, state, district) {
@@ -94,3 +110,15 @@ const userAction = async () => {
 }
 
 userAction();
+
+function getURLParam(param) {
+    var urlParams = new URL(window.location.href);
+    var urlParam = urlParams.searchParams.get(param);
+    return urlParam;
+}
+
+function setURLParam(param, value) {
+    var urlParams = new URL(window.location.href);
+    urlParams.searchParams.set(param, value)
+    return urlParams;
+}
