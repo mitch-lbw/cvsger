@@ -77,12 +77,10 @@ const userAction = async () => {
     for (var key in valuesMap) {
         let val = valuesMap[key];
         let marker = L.circle([val.lat, val.long], {
-            color: 'red',
             fillOpacity: 0.6,
             radius: 1500 * Math.log(val.confirmed),
-            fillColor: 'white',
-            opacity: 0.4,
-            width: 1
+            fillColor: 'red',
+            color: 'none'
         }).addTo(leafletMap);
         marker.bindPopup(formatCoordinate(val.confirmed, 0, 0, val.state, val.district));
         marker.on('mouseover', function (ev) {
