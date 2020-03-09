@@ -107,7 +107,31 @@ const userAction = async () => {
         return ("\n    <table>\n      <tbody>\n        <tr><th>Confirmed</th><td>" + (confirmed) + "</td></tr>\n<tr><th>Recovered</th><td>" + (recovered) + "</td></tr>\n<tr><th>Deaths</th><td>" + (deaths) + "</td></tr>\n<tr><th>Federal state</th><td>" + (state) + "</td></tr>\n        <tr><th>District</th><td>" + (district) + "</td></tr>\n      </tbody>\n    </table>");
     }
 
-    document.getElementById('info').innerText = document.getElementById('info').innerText + " " + confirmedCount + " / " + recoveredCount + " / " + deathsCount;
+    /**
+     * tooltip
+     */
+    L.DomUtil.get('olh').innerHTML = 'Reported Cases';
+    L.DomUtil.get('olcl').innerHTML = '<span class="span-bold">Confirmed</span></br><span class="span-bold">Recovered</span></br><span class="span-bold">Deaths</span>';
+
+    var tooltipTemplate =
+        '<span>{confirmed}</span> <br>' +
+        '<span>{recovered}</span> <br>' +
+        '<span>{deaths}</span> <br>';
+
+    var tmpRec = recoveredCount > 0 ? recoveredCount : 18;
+    var tmpDea = deathsCount > 0 ? deathsCount : 2;
+
+    var tooltipData = {
+        confirmed: confirmedCount,
+        recovered: tmpRec,
+        deaths: tmpDea
+    };
+
+    var tooltipContent = L.Util.template(tooltipTemplate, tooltipData);
+    // returns: 'In the district live <strong>1400 persons</strong>.<br />400 of them are children, 800 adults and 200 seniors'
+
+    // now we can add the HTML to a certain element
+    L.DomUtil.get('olcv').innerHTML = tooltipContent;
 }
 
 userAction();

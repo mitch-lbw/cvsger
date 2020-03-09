@@ -3,9 +3,42 @@ body {
     margin: 0;
 }
 
+.span-bold{
+    font-weight: bold;
+}
+
+.span-italic{
+    font-style: italic;
+}
+
 #map {
     width: 100%;
     height: 768px;
+    z-index: 1;
+}
+
+#overlay{
+    position:absolute; 
+    top:15%; 
+    left:80%; 
+    width:15%; 
+    height:15%;     
+    background-color:lightsteelblue; 
+    opacity: 70%;
+    z-index: 2;
+    border-radius: 15px;   
+}
+
+#olh{
+    margin: 10px 20px;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+#olc{
+    margin: 0 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #header {
