@@ -111,27 +111,39 @@ const userAction = async () => {
      * tooltip
      */
     L.DomUtil.get('olh').innerHTML = 'Reported Cases';
-    L.DomUtil.get('olcl').innerHTML = '<span class="span-bold">Confirmed</span></br><span class="span-bold">Recovered</span></br><span class="span-bold">Deaths</span>';
+    L.DomUtil.get('olcl').innerHTML = '<span class="span-bold">Confirmed</span></br>' +
+        '<span class="span-bold"> Recovered</span ></br> ' +
+        '<span class="span-bold">Deaths</span>';
+
 
     var tooltipTemplate =
         '<span>{confirmed}</span> <br>' +
         '<span>{recovered}</span> <br>' +
         '<span>{deaths}</span> <br>';
 
-    var tmpRec = recoveredCount > 0 ? recoveredCount : 18;
-    var tmpDea = deathsCount > 0 ? deathsCount : 2;
+    var tmpRec = recoveredCount > 0 ? recoveredCount : 25;
+    var tmpDea = deathsCount > 0 ? deathsCount : 6;
 
     var tooltipData = {
         confirmed: confirmedCount,
         recovered: tmpRec,
         deaths: tmpDea
     };
-
     var tooltipContent = L.Util.template(tooltipTemplate, tooltipData);
-    // returns: 'In the district live <strong>1400 persons</strong>.<br />400 of them are children, 800 adults and 200 seniors'
-
-    // now we can add the HTML to a certain element
     L.DomUtil.get('olcv').innerHTML = tooltipContent;
+
+    var percentageTemplate = '<br>' +
+        '<span>{recRate}%&#185;</span> <br>' +
+        '<span>{letality}%&#185;</span>';
+
+    var percentageData = {
+        recRate: (tmpRec / confirmedCount).toFixed(3),
+        letality: (tmpDea / confirmedCount).toFixed(3)
+    };
+
+    var percentageContent = L.Util.template(percentageTemplate, percentageData);
+    L.DomUtil.get('olcp').innerHTML = percentageContent;
+
 }
 
 userAction();

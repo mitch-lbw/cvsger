@@ -22,9 +22,10 @@ body {
     top:15%; 
     left:80%; 
     width:15%; 
-    height:15%;     
-    background-color:lightsteelblue; 
-    opacity: 70%;
+    height:13%;     
+    background-color:gray; 
+    color: whitesmoke;
+    opacity: 90%;
     z-index: 2;
     border-radius: 15px;   
 }
@@ -36,9 +37,19 @@ body {
 }
 
 #olc{
-    margin: 0 50px;
+    margin: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#olcv{
+    text-align: center;
+}
+
+#details{
+text-align: right;
+font-size: 8pt;
+margin: 0 50px;
 }
 
 #header {
