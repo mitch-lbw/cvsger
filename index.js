@@ -121,8 +121,9 @@ const userAction = async () => {
         '<span>{recovered}</span> <br>' +
         '<span>{deaths}</span> <br>';
 
-    var tmpRec = recoveredCount > 0 ? recoveredCount : 25;
-    var tmpDea = deathsCount > 0 ? deathsCount : 6;
+    confirmedCount = 3795;
+    var tmpRec = recoveredCount > 0 ? recoveredCount : 46;
+    var tmpDea = deathsCount > 0 ? deathsCount : 8;
 
     var tooltipData = {
         confirmed: confirmedCount,
